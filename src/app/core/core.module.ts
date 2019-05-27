@@ -6,9 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { RouteReuseStrategy } from '@angular/router';
 
+
+
+
+import { AngularFireModule } from '@angular/fire'
+
 @NgModule({
   declarations: [],
-  imports: [IonicModule.forRoot()],
+  imports: [IonicModule.forRoot(), AngularFireModule],
   exports: [ BrowserModule, IonicModule],
   providers: [
     StatusBar,
