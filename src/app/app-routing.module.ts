@@ -7,11 +7,10 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  { path: 'login', loadChildren: './auth/pages/login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './auth/pages/login/login.module#LoginPageModule' },
+  { path: 'areas', loadChildren: './areas/areas.module#AreasPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'historico', loadChildren: './historico/historico.module#HistoricoPageModule' },
 ];
 
 @NgModule({
