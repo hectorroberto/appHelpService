@@ -36,6 +36,14 @@ var AuthService = /** @class */ (function () {
                 .then(function () { return crendentials; });
         });
     };
+    //Registrar-se
+    AuthService.prototype.criarConta = function (user) {
+        this.afAuth.auth
+            .createUserWithEmailAndPassword(user.email, user.password);
+    };
+    AuthService.prototype.logar = function (user) {
+        return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+    };
     AuthService = tslib_1.__decorate([
         Injectable({
             providedIn: 'root'

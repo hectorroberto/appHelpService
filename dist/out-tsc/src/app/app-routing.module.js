@@ -7,12 +7,13 @@ var routes = [
         redirectTo: 'login',
         pathMatch: 'full'
     },
-    {
-        path: 'list',
-        loadChildren: './list/list.module#ListPageModule'
-    },
     { path: 'login', loadChildren: './auth/pages/login/login.module#LoginPageModule' },
     { path: 'areas', loadChildren: './areas/areas.module#AreasPageModule' },
+    { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+    { path: 'historico', loadChildren: './historico/historico.module#HistoricoPageModule' },
+    { path: 'register', loadChildren: './register/register/register.module#RegisterPageModule' },
+    { path: 'about', loadChildren: './register/about/about.module#AboutPageModule' },
+    { path: 'perfil/:title', loadChildren: './perfil/perfil.module#PerfilPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

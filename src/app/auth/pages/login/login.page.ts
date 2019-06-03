@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,19 +20,18 @@ export class LoginPage implements OnInit {
     actionChange: 'Criar conta'
   };
 
-  private nameControl = new FormControl('',[Validators.required, Validators.minLength(3)]);
- 
+  private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
   constructor(private authService: AuthService,
     private fb: FormBuilder,
     private navCtrl: NavController,
     private route: ActivatedRoute,
-    ) { }
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.createForm();
   }
-
 
   createForm() {
     this.authForm = this.fb.group({
@@ -41,44 +40,44 @@ export class LoginPage implements OnInit {
     })
   }
 
-  get nome(): FormControl{
+  get nome(): FormControl {
     return <FormControl>this.authForm.get('nome');
   }
 
-  get email(): FormControl{
+  get email(): FormControl {
     return <FormControl>this.authForm.get('email');
   }
 
-  get password(): FormControl{
+  get password(): FormControl {
     return <FormControl>this.authForm.get('password');
   }
 
-  changeAuthAction(){
+  changeAuthAction() {
     this.configs.isSignIn = !this.configs.isSignIn;
-    const {isSignIn } = this.configs;
+    const { isSignIn } = this.configs;
     this.configs.action = isSignIn ? 'Login' : 'Registrar-se';
     this.configs.actionChange = isSignIn ? 'Criar Conta' : 'Já possuo uma conta';
-    !isSignIn 
+    !isSignIn
       ? this.authForm.addControl('name', this.nameControl)
       : this.authForm.removeControl('name');
   }
 
-  async onSubmit(provider: AuthProvider): Promise<void>{
-    
-    try{
+  async onSubmit(provider: AuthProvider): Promise<void> {
+
+    try {
       const credentials = await this.authService.authenticate({
         isSignIn: this.configs.isSignIn,
         user: this.authForm.value,
         provider
       });
-      
       this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/areas');
-
-    } catch(e){
+    } catch (e) {
       console.log('Auth error: ', e);
     }
-  } 
+  }
 
+  async goToRegister() {
+    this.router.navigateByUrl('/register')
+  }
   
-
 }

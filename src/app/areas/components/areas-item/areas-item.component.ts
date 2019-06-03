@@ -15,7 +15,7 @@ export class AreasItemComponent {
   @Output() done = new EventEmitter<Areas>();
   @Output() update = new EventEmitter<Areas>();
   @Output() delete = new EventEmitter<Areas>();
-
+ 
 
 
 }

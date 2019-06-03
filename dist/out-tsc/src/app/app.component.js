@@ -10,13 +10,18 @@ var AppComponent = /** @class */ (function () {
         this.statusBar = statusBar;
         this.appPages = [
             {
-                title: 'List',
-                url: '/list',
-                icon: 'list'
+                title: 'Perfil',
+                url: '/perfil',
+                icon: 'person'
             },
             {
-                title: 'Áreas',
+                title: 'Solicitar Serviço',
                 url: '/areas',
+                icon: 'construct'
+            },
+            {
+                title: 'Histórico',
+                url: '/historico',
                 icon: 'bookmarks'
             }
         ];

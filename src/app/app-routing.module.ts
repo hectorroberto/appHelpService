@@ -11,6 +11,11 @@ const routes: Routes = [
   { path: 'areas', loadChildren: './areas/areas.module#AreasPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
   { path: 'historico', loadChildren: './historico/historico.module#HistoricoPageModule' },
+  { path: 'register', loadChildren: './register/register/register.module#RegisterPageModule' },
+  { path: 'about', loadChildren: './register/about/about.module#AboutPageModule' },
+  { path: 'perfil/:title', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  
+  
 ];
 
 @NgModule({

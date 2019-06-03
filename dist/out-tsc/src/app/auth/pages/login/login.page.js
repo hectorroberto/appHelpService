@@ -3,10 +3,15 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
+import { NavController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 var LoginPage = /** @class */ (function () {
-    function LoginPage(authService, fb) {
+    function LoginPage(authService, fb, navCtrl, route, router) {
         this.authService = authService;
         this.fb = fb;
+        this.navCtrl = navCtrl;
+        this.route = route;
+        this.router = router;
         this.authProviders = AuthProvider;
         this.configs = {
             isSignIn: true,
@@ -68,8 +73,7 @@ var LoginPage = /** @class */ (function () {
                             })];
                     case 1:
                         credentials = _a.sent();
-                        console.log('Authenticated: ', credentials);
-                        console.log('Redirecting...');
+                        this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/areas');
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();
@@ -80,13 +84,25 @@ var LoginPage = /** @class */ (function () {
             });
         });
     };
+    LoginPage.prototype.goToRegister = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                this.router.navigateByUrl('/register');
+                return [2 /*return*/];
+            });
+        });
+    };
     LoginPage = tslib_1.__decorate([
         Component({
             selector: 'app-login',
             templateUrl: './login.page.html',
             styleUrls: ['./login.page.scss'],
         }),
-        tslib_1.__metadata("design:paramtypes", [AuthService, FormBuilder])
+        tslib_1.__metadata("design:paramtypes", [AuthService,
+            FormBuilder,
+            NavController,
+            ActivatedRoute,
+            Router])
     ], LoginPage);
     return LoginPage;
 }());

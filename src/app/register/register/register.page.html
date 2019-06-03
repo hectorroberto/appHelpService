@@ -1,0 +1,23 @@
+<ion-content padding>
+
+    <h1 text-center>
+        <img width="300px" src="./assets/logo-init.png">
+    </h1>
+
+
+    <ion-item>
+        <ion-icon name="mail" color="primary" slot="start"></ion-icon>
+        <ion-input type="text" [(ngModel)]="user.email" placeholder="Insira seu e-mail..."></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="lock" color="primary" slot="start"></ion-icon>
+        <ion-input type="password" [(ngModel)]="user.password" placeholder="Insira sua senha..."></ion-input>
+    </ion-item>
+
+
+
+    <ion-button expand="block" fill="clear" (click)="goRegisterPage(authProviders.Email)"> Criar conta </ion-button>
+
+
+
+</ion-content>

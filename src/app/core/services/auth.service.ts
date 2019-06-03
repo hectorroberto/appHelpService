@@ -16,6 +16,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) {
     this.authState$ = this.afAuth.authState;
+    
   }
 
   get isAuthenticated(): Observable<boolean> {
@@ -45,4 +46,15 @@ export class AuthService {
       .then(() => crendentials)
       );
   }
+
+  //Registrar-se
+  criarConta(user: User){
+    this.afAuth.auth
+    .createUserWithEmailAndPassword(user.email, user.password);
+    
+  }
+  logar(user: User){
+    return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+  }
+
 }

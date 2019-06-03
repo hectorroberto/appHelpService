@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conte-nos mais sobre você</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-item>
+    <ion-icon name="person" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating"> Qual seu nome? </ion-label>
+    <ion-input type="text" [(ngModel)]="perfil.nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="mail" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating"> Confirme seu e-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="perfil.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="call" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating"> Telefone para contato... </ion-label>
+    <ion-input type="text" [(ngModel)]="perfil.contato"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="home" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating"> Nome da sua rua... </ion-label>
+    <ion-input type="text" [(ngModel)]="perfil.rua"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="clipboard" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating"> Número da sua casa... </ion-label>
+    <ion-input type="text" [(ngModel)]="perfil.numeroRua"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="information-circle-outline" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating">Insira seu CEP...</ion-label>
+    <ion-input type="text" [(ngModel)]="perfil.cep"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-icon name="construct" color="primary" slot="start"></ion-icon>
+    <ion-list-header> Áreas de serviço </ion-list-header>
+    <ion-select [(ngModel)]="perfil.areas" multiple="false" cancelText="Cancelar" okText="OK">
+      <ion-select-option> Advogado </ion-select-option>
+      <ion-select-option> Alarme </ion-select-option>
+      <ion-select-option> Arquiteto </ion-select-option>
+      <ion-select-option> Contador </ion-select-option>
+      <ion-select-option> Engenheiro Civil </ion-select-option>
+      <ion-select-option> Engenheiro Elétrico </ion-select-option>
+      <ion-select-option> Fisioterapeuta </ion-select-option>
+      <ion-select-option> Jardineiro </ion-select-option>
+      <ion-select-option> Médico </ion-select-option>
+      <ion-select-option> Pedreiro </ion-select-option>
+      <ion-select-option> Pintor </ion-select-option>
+      <ion-select-option> Programador </ion-select-option>
+      <ion-select-option> Psicólogo </ion-select-option>
+      <ion-select-option> Rede de Computadores </ion-select-option>
+      <ion-select-option> Refrigeração </ion-select-option>
+      <ion-select-option> Técnico em Informática </ion-select-option>
+
+    </ion-select>
+  </ion-list>
+
+  
+  
+
+
+
+
+
+
+
+  <ion-item>
+    <ion-icon name="glasses" color="primary" slot="start"></ion-icon>
+    <ion-label position="floating">Diga algo sobre você... </ion-label>
+    <ion-textarea rows="3" cols="5" [(ngModel)]="perfil.informacoes"></ion-textarea>
+  </ion-item>
+
+
+
+
+
+
+
+  <ion-button expand="block" type="submit" (click)="finalizarAbout()"> Finalizar </ion-button>
+
+</ion-content>

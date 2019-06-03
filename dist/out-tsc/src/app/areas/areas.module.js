@@ -1,10 +1,9 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
 import { AreasPage } from './areas.page';
+import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from './components/components/components.module';
 var routes = [
     {
         path: '',
@@ -17,9 +16,8 @@ var AreasPageModule = /** @class */ (function () {
     AreasPageModule = tslib_1.__decorate([
         NgModule({
             imports: [
-                CommonModule,
-                FormsModule,
-                IonicModule,
+                SharedModule,
+                ComponentsModule,
                 RouterModule.forChild(routes)
             ],
             declarations: [AreasPage]

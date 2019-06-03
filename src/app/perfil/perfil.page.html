@@ -1,9 +1,25 @@
+
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <h1><ion-title>Profissionais</ion-title></h1>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list *ngIf="perfil$ | async as perfil" >
+    <ng-container *ngIf="perfil.length > 0; else noAreas">
+        <app-perfil-item
+        *ngFor="let perfil of perfil"
+        [perfil]="perfil"
+        (update)="onUpdate($event)"
+        ></app-perfil-item>
+    </ng-container>
+
+    <ng-template #noAreas> 
+      <ion-item lines="nome">Não há áreas..</ion-item>
+    </ng-template>
+  </ion-list>
 
 </ion-content>

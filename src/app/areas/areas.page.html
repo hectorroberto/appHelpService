@@ -1,15 +1,34 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon
+          slot="icon-only"
+          name="menu">
+
+          </ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
     <ion-title>Solicitar Serviços</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-list>
-    <app-areas-item *ngFor="let areas of (areas$ | async)" [areas]="areas"></app-areas-item>
+  <ion-list *ngIf="areas$ | async as areas" >
+    <ng-container *ngIf="areas.length > 0; else noAreas">
+        <app-areas-item
+        *ngFor="let areas of areas"
+        [areas]="areas"
+        (update)="onUpdate($event)"
+        ></app-areas-item>
+    </ng-container>
+
+    <ng-template #noAreas> 
+      <ion-item lines="nome">Não há áreas..</ion-item>
+    </ng-template>
   </ion-list>
-
-
 
 </ion-content>

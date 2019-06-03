@@ -5,7 +5,14 @@ export enum AuthProvider {
 
 
 export interface User{
+    cep?: string,
+    contato?: number,
+    estrelas: number,
+    id: string,
+    informacoes?: string,
     name?: string,
+    numeroRua?: number,
+    rua?: string,
     email: string,
     password: string;
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs'
+import { Observable } from 'rxjs'
 import { Areas } from './Models/areas.model';
+import { AreasService } from './services/areas.service';
+import { NavController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-areas',
@@ -9,16 +12,23 @@ import { Areas } from './Models/areas.model';
 })
 export class AreasPage implements OnInit {
 
+  areas$: Observable<Areas[]>;
 
-  areas$: Observable<Areas[]>
-
-  constructor() { }
+  constructor(private areasService: AreasService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private navCtrl: NavController ) { }
 
   ngOnInit() {
-    this.areas$ = of([
-      { id: '123a', title: 'Aprender Ionic'},
-      { id: '123b', title: 'Aprender Firebase'}
-    ]);
+    this.areas$ =  this.areasService.getAll();
+  } 
+
+
+  onUpdate(areas: Areas): void{
+    this.navCtrl.navigateForward(`/perfil`);
+    //this.navCtrl.navigateForward(`/perfil/ ${areas.title}`);
   }
+
+  //*ngIf="areas$ | async as areas"
 
 }

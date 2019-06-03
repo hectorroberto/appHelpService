@@ -10,12 +10,13 @@ import { RouteReuseStrategy } from '@angular/router';
 
 
 import { AngularFireModule } from '@angular/fire'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [],
-  imports: [IonicModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFireAuthModule],
+  imports: [IonicModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFireAuthModule, AngularFirestoreModule],
   exports: [ BrowserModule, IonicModule],
   providers: [
     StatusBar,
