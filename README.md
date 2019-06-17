@@ -1,5 +1,5 @@
 # appHelpService
-Projeto desenvolvido para disciplina TAI 2 do curso Sistemas de Informação, ministrada pelo Mestre Jair.
+Projeto desenvolvido para disciplina TAI 2 do curso Sistemas de Informação, ministrada pelo Mestre Jair Figueiredo.
 
 
 Repositórios anteriores: 
